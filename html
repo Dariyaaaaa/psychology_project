@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация и Вход</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="form-container">
+        <h2>Регистрация</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn">Зарегистрироваться</button>
+        </form>
+        <div class="toggle-link">Уже есть аккаунт? <a href="#" id="show-login">Войти</a></div>
+    </div>
+
+    <div id="login-container" style="display:none;">
+        <h2>Вход</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Пароль</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button type="submit" class="btn">Войти</button>
+        </form>
+        <div class="toggle-link">Нет аккаунта? <a href="#" id="show-register">Зарегистрироваться</a></div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('show-login').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('login-container').style.display = 'block';
+    });
+
+    document.getElementById('show-register').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('login-container').style.display = 'none';
+        document.getElementById('form-container').style.display = 'block';
+    });
+
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Регистрация успешна!');
+        // Здесь можно добавить код для отправки данных на сервер
+    });
+
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Вход успешен!');
+        // Здесь можно добавить код для проверки данных на сервере
+    });
+</script>
+
+</body>
+</html>
